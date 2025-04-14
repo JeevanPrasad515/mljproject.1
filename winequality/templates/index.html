@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wine Quality Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fcfcfc;
+            padding: 20px;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .prediction {
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        <h2>Wine Quality Predictor</h2>
+        <input type="number" step="any" name="fixed_acidity" placeholder="Fixed Acidity" required>
+        <input type="number" step="any" name="volatile_acidity" placeholder="Volatile Acidity" required>
+        <input type="number" step="any" name="citric_acid" placeholder="Citric Acid" required>
+        <input type="number" step="any" name="residual_sugar" placeholder="Residual Sugar" required>
+        <input type="number" step="any" name="chlorides" placeholder="Chlorides" required>
+        <input type="number" step="any" name="free_sulfur_dioxide" placeholder="Free Sulfur Dioxide" required>
+        <input type="number" step="any" name="total_sulfur_dioxide" placeholder="Total Sulfur Dioxide" required>
+        <input type="number" step="any" name="density" placeholder="Density" required>
+        <input type="number" step="any" name="pH" placeholder="pH" required>
+        <input type="number" step="any" name="sulphates" placeholder="Sulphates" required>
+        <input type="number" step="any" name="alcohol" placeholder="Alcohol" required>
+        <input type="submit" value="Predict Quality">
+        {% if prediction is not none %}
+        <div class="prediction">Predicted Wine Quality: <strong>{{ prediction }}</strong></div>
+        {% endif %}
+    </form>
+</body>
+</html>
